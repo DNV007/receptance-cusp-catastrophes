@@ -1,0 +1,57 @@
+{
+  "kstar_direct": 0.11931494140625,
+  "bracket": [
+    0.1193095703125,
+    0.1193203125
+  ],
+  "bracket_width": 1.0742187499995781e-05,
+  "kstar_extrapolated": 0.119072,
+  "kstar_reduced_model": 0.1183654,
+  "history": [
+    {
+      "kappa": 0.11975,
+      "gap": 0.0034668284350747314,
+      "has_gap": true
+    },
+    {
+      "kappa": 0.11837500000000001,
+      "gap": 0.0,
+      "has_gap": false
+    },
+    {
+      "kappa": 0.1190625,
+      "gap": 0.0,
+      "has_gap": false
+    },
+    {
+      "kappa": 0.11940624999999999,
+      "gap": 0.0016020627469544024,
+      "has_gap": true
+    },
+    {
+      "kappa": 0.119234375,
+      "gap": 0.0,
+      "has_gap": false
+    },
+    {
+      "kappa": 0.1193203125,
+      "gap": 0.00028767188197420523,
+      "has_gap": true
+    },
+    {
+      "kappa": 0.11927734375,
+      "gap": 0.0,
+      "has_gap": false
+    },
+    {
+      "kappa": 0.119298828125,
+      "gap": 0.0,
+      "has_gap": false
+    },
+    {
+      "kappa": 0.1193095703125,
+      "gap": 0.0,
+      "has_gap": false
+    }
+  ]
+}

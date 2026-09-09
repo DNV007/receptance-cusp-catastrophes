@@ -1,0 +1,40 @@
+{
+  "bracket": [
+    0.1193095703125,
+    0.1193203125
+  ],
+  "rows": [
+    {
+      "nh": 3,
+      "lo": false,
+      "lo_width": 0.0,
+      "hi": true,
+      "hi_width": 0.00028767188197420523,
+      "bracket_holds": true
+    },
+    {
+      "nh": 5,
+      "lo": false,
+      "lo_width": 0.0,
+      "hi": true,
+      "hi_width": 0.00019178125464947016,
+      "bracket_holds": true
+    },
+    {
+      "nh": 7,
+      "lo": false,
+      "lo_width": 0.0,
+      "hi": true,
+      "hi_width": 0.00019178125464947016,
+      "bracket_holds": true
+    },
+    {
+      "nh": 9,
+      "lo": false,
+      "lo_width": 0.0,
+      "hi": true,
+      "hi_width": 0.00019178125464947016,
+      "bracket_holds": true
+    }
+  ]
+}

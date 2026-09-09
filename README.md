@@ -1,5 +1,7 @@
 # receptance-cusp-catastrophes
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22672005.svg)](https://doi.org/10.5281/zenodo.22672005)
+
 Code and data for locating **cusp-pair births** in a driven resonator network
 from its **linear driving-point receptance** alone.
 
@@ -69,3 +71,17 @@ core; those are noted in their module docstrings.
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
+
+## Citing
+
+Cite the archived software by its concept DOI, which always resolves to the
+newest version:
+
+> K. Sarkar, *receptance-cusp-catastrophes: code and data for cusp-pair births
+> organized by the linear driving-point receptance*. Zenodo.
+> [doi:10.5281/zenodo.22672005](https://doi.org/10.5281/zenodo.22672005)
+
+`CITATION.cff` carries the same information in machine-readable form, and
+GitHub's *Cite this repository* button reads it. The two manuscripts this
+supports are listed at the top; their arXiv identifiers will be added here once
+they are posted.

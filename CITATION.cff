@@ -11,6 +11,14 @@ authors:
     affiliation: >-
       Institut fuer Theoretische Chemie, Universitaet Ulm, 89081 Ulm, Germany
 repository-code: https://github.com/DNV007/receptance-cusp-catastrophes
+doi: 10.5281/zenodo.22672005
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22672005
+    description: Concept DOI, resolving to the latest version
+  - type: doi
+    value: 10.5281/zenodo.22672006
+    description: Version DOI for v1.0.0
 license: MIT
 version: 1.0.0
 keywords:

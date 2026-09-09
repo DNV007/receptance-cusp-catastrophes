@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: >-
+  receptance-cusp-catastrophes: code and data for cusp-pair births organized by
+  the linear driving-point receptance
+type: software
+authors:
+  - family-names: Sarkar
+    given-names: Kanchan
+    orcid: https://orcid.org/0000-0002-0025-7055
+    affiliation: >-
+      Institut fuer Theoretische Chemie, Universitaet Ulm, 89081 Ulm, Germany
+repository-code: https://github.com/DNV007/receptance-cusp-catastrophes
+license: MIT
+version: 1.0.0
+keywords:
+  - nonlinear dynamics
+  - cusp catastrophe
+  - harmonic balance
+  - driving-point receptance
+  - bistability

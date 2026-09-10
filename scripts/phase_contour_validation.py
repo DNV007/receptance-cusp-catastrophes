@@ -170,6 +170,38 @@ def main() -> None:
             print(f"  {fam:>5}: mean {sub.mean():+.3f} deg, "
                   f"max|.| {np.abs(sub).max():.3f} deg, n = {sub.size}")
 
+    # Dynamic range of the test.  A tolerance of 0.44 deg is only meaningful
+    # against the phase the band actually traverses, and against the local
+    # slope that converts degrees into a frequency displacement.  Without
+    # this null the residual could be a trivial pass.
+    beaks = [d for d in rows if d["family"] == "beaks"]
+    if beaks:
+        ks = sorted({d["kappa"] for d in beaks})
+        oms = np.linspace(min(d["Om"] for d in beaks),
+                          max(d["Om"] for d in beaks), 2001)
+        spans, allv = [], []
+        for k in ks:
+            a = np.array([arg_G(o, k, 1.25) for o in oms])
+            spans.append(a.max() - a.min())
+            allv.append(a)
+        allv = np.concatenate(allv)
+        sl = np.abs([d["slope"] for d in beaks])
+        worst = np.abs([d["resid"] for d in beaks]).max()
+        print("\n" + "-" * 78)
+        print("DYNAMIC RANGE OF THE PHASE TEST (hardening family)")
+        print(f"  band Omega = {oms[0]:.4f}-{oms[-1]:.4f}, "
+              f"kappa = {min(ks):.4f}-{max(ks):.4f} (x{max(ks)/min(ks):.2f})")
+        print(f"  arg G span at fixed kappa: {min(spans):.1f} deg "
+              f"(kappa={ks[int(np.argmin(spans))]:.4f}) to {max(spans):.1f} deg "
+              f"(kappa={ks[int(np.argmax(spans))]:.4f}); "
+              f"{allv.max() - allv.min():.1f} deg over the whole set")
+        print(f"  worst residual {worst:.3f} deg = "
+              f"{100 * worst / min(spans):.1f}% of the smallest span")
+        print(f"  |d argG/dOm| at the located cusps: "
+              f"{sl.min():.0f} to {sl.max():.0f} deg per unit Omega")
+        print(f"  so {worst:.2f} deg corresponds to dOmega = "
+              f"{worst / sl.max():.2e} to {worst / sl.min():.2e}")
+
     out = os.path.join(DATA, "phase_contour_validation.csv")
     with open(out, "w") as fh:
         fh.write("family,w2,kappa,side,Om_HB,argG,resid_deg,dargG_dOm,dOm_equiv\n")

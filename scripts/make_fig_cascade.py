@@ -105,7 +105,9 @@ axp.set_ylim(-205, 25)
 axp.set_yticks([-180, -150, -90, 0])
 axp.spines["right"].set_color(st.C_HB)
 
-axc.plot(lo, lk, ".", ms=1.6, color=st.C_ANALYTIC, rasterized=True)
+# Kept vector: the locus is a few hundred points, and rasterizing this one
+# artist was emitting an 8-bit SMask (alpha) that APS production must flatten.
+axc.plot(lo, lk, ".", ms=1.6, color=st.C_ANALYTIC)
 for kstar, newpts in births:
     for o in newpts:
         axc.plot(o, kstar, marker="*", ms=7.5, color="black", mec="white",

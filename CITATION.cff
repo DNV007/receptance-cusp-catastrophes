@@ -20,7 +20,7 @@ identifiers:
     value: 10.5281/zenodo.22672006
     description: Version DOI for v1.0.0
 license: MIT
-version: 1.0.0
+version: 1.0.1
 keywords:
   - nonlinear dynamics
   - cusp catastrophe

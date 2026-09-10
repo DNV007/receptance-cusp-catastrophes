@@ -187,7 +187,13 @@ for ri, (lab, om, ze, Kf, kappas, band) in enumerate(ROWS):
                 ls="", label="full HB")
         ax.set_xlim(*band)
         ax.set_ylim(0, (_tops[(ri, ci)] or _rowmax[ri]) * 1.30)
-        ax.text(0.04, 0.93, f"{LABELS[k]}\n$\\kappa={k}$",
+        # Panels autoscale, so a narrow tongue is drawn as tall as a wide one.
+        # Tag any panel magnified more than ~1.6x against the widest in its
+        # row, so the progression can be read across the row and not only off
+        # the tick labels.
+        mag = _rowmax[ri] / _tops[(ri, ci)] if _tops[(ri, ci)] else 1.0
+        tag = (f"\n$\\times{mag:.0f}$ vertical" if mag >= 1.6 else "")
+        ax.text(0.04, 0.93, f"{LABELS[k]}\n$\\kappa={k}${tag}",
                 transform=ax.transAxes, va="top", fontsize=7)
         if len(how) == 0 and not np.any(~np.isnan(dF)):
             ax.text(0.5, 0.45, "no bistability", transform=ax.transAxes,

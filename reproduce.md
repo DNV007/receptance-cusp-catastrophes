@@ -76,13 +76,24 @@ long paper cross-references it rather than reproducing the panels.
 
 | Figure | Output | Generator | Upstream data → producer |
 |---|---|---|---|
-| **Fig. 1** (phase contour) | `figures/fig0_phase_contour.pdf` | `scripts/make_fig0_phase_contour.py` | self-contained (via `recompute_beaks_table.py`) |
-| **Fig. 2** (bistability wedge) | `figures/fig2_wedge.pdf` | `scripts/make_fig2_wedge.py` | self-contained |
-| **Fig. 3** (cusp locus) | `figures/fig1_cusp_locus.pdf` | `scripts/make_fig1_cusp_locus.py` | self-contained |
-| **Fig. 4** (3/2 closure, compensated) | `figures/fig2_cusp_scaling.pdf` | `scripts/make_fig2_scaling.py` | `data/cusp_scaling_law.csv` ← `run_cusp_scaling_law.py` ← `data/cusp_both_folds.csv` |
-| **Fig. 5** (√μ pair separation) | `figures/fig3_cusp_of_cusps.pdf` | `scripts/make_fig3_cusp_of_cusps.py` | `data/beaks_tips_refined.csv` ← `refine_beaks_window.py` |
-| **Fig. 6** (cascade) | `figures/fig_cascade.pdf` | `scripts/make_fig_cascade.py` | self-contained |
-| ~~Fig. 7~~ (both topologies) — REMOVED from the long paper 2026-09-07 to avoid duplicating Letter Fig. 2(a),(b), which is drawn from the same CSV; `fig_maps.pdf` and its generator are retained in the archive but are no longer cited by either manuscript | `figures/fig_maps.pdf` | `scripts/make_fig_maps.py` | `data/hb_bistability_maps.csv` ← `make_fig_maps_data.py` |
+| **Fig. 1** (pole-resolved ladder) | `figures/fig_cascade.pdf` | `scripts/make_fig_cascade.py` | self-contained |
+| **Fig. 2** (isolated-pole scaling) | `figures/fig_threshold_scaling.pdf` | `scripts/make_fig_threshold_scaling.py` | self-contained (Newton continuation of the modal two-pole birth); writes `data/threshold_scaling.csv` |
+| **Fig. 3** (√μ pair separation) | `figures/fig3_cusp_of_cusps.pdf` | `scripts/make_fig3_cusp_of_cusps.py` | `data/beaks_tips_refined.csv` ← `refine_beaks_window.py` |
+| **Fig. 4** (classifier at its weakest point) | `figures/fig_typeboundary.pdf` | `scripts/make_fig_typeboundary.py` | `data/typeboundary_hb_verify.csv`, `data/typeboundary_lips_threshold.csv`, `data/typeboundary_lips_scaling.csv`; predicted cusps recomputed from the receptance in the script |
+
+**Superseded figures, retained but cited by neither manuscript.** These belong
+to the earlier long-paper draft (`catastrophe_classification.tex`, replaced by
+`catastrophe_classification1.tex`). Their generators still run; they are kept
+so the earlier draft remains reproducible, and are listed here so nobody hunts
+for them in the current papers.
+
+| Was | Output | Generator | Upstream data → producer |
+|---|---|---|---|
+| old Fig. 1 (phase contour) | `figures/fig0_phase_contour.pdf` | `scripts/make_fig0_phase_contour.py` | self-contained (via `recompute_beaks_table.py`) |
+| old Fig. 2 (bistability wedge) | `figures/fig2_wedge.pdf` | `scripts/make_fig2_wedge.py` | self-contained |
+| old Fig. 3 (cusp locus) | `figures/fig1_cusp_locus.pdf` | `scripts/make_fig1_cusp_locus.py` | self-contained |
+| old Fig. 4 (3/2 closure, compensated) | `figures/fig2_cusp_scaling.pdf` | `scripts/make_fig2_scaling.py` | `data/cusp_scaling_law.csv` ← `run_cusp_scaling_law.py` ← `data/cusp_both_folds.csv` |
+| old Fig. 7 (both topologies) — dropped 2026-09-07 to avoid duplicating Letter Fig. 2(a),(b), drawn from the same CSV | `figures/fig_maps.pdf` | `scripts/make_fig_maps.py` | `data/hb_bistability_maps.csv` ← `make_fig_maps_data.py` |
 
 Regenerating a figure runs its generator; regenerating from scratch runs the
 upstream producers first.
@@ -93,13 +104,19 @@ upstream producers first.
 
 | Table | Content | Data → producer |
 |---|---|---|
-| `tab:beaks_hb` (II) | sixteen upper-pair tips, μ, c\*_HB, c\*_LO+1 | `data/beaks_tips_refined.csv` ← `refine_beaks_window.py`; c\*_LO+1 from `normal_form_cstar.py` |
-| `tab:typevalidity` (III) | rule accuracy vs background phase ψ | `data/ensemble_validity_boundary.csv` ← `ensemble_validity_boundary.py` |
-| `tab:typecriterion` (IV) | beaks–lips sweep over ω₂ | `typecriterion_table.py` (regenerates the table and checks a_Ω over four decades in the finite-difference step) |
-| `tab:fingerprint` (V) | discriminating power of {3/2, 1/2} | analytic; no script |
-| `tab:nharm` (VI) | fold amplitudes at N_HARM = 2, 3, 4 | `data/nharm_convergence.csv` ← `nharm_convergence.py` |
-| `tab:nharmtips` (VII) | truncation dependence of the located tips | `data/beaks_nharm_refined.csv` ← `refine_nharm_study.py` |
-| `tab:projconv` (VIII) | located projection fold under seven settings | `data/projfold_convergence.csv` ← `projfold_convergence.py` |
+| `tab:typecriterion` (**I**) | beaks–lips sweep over ω₂ | `typecriterion_table.py` (regenerates the table and checks a_Ω over four decades in the coupling) |
+| `tab:typevalidity` (**II**) | rule accuracy vs background phase ψ | `data/ensemble_validity_boundary.csv` ← `ensemble_validity_boundary.py` |
+| `tab:beaks_hb` (**III**) | sixteen upper-pair tips, μ, c\*_HB, c\*_LO+1 | `data/beaks_tips_refined.csv` ← `refine_beaks_window.py`; c\*_LO+1 from `normal_form_cstar.py` |
+| `tab:nharmtips` (**IV**) | truncation dependence of the located tips | `data/beaks_nharm_refined.csv` ← `refine_nharm_study.py` |
+
+No longer typeset as numbered tables in the current draft; the content moved
+into appendices, and the data and producers are unchanged:
+
+| Was | Now | Data → producer |
+|---|---|---|
+| `tab:nharm` | Appendix `app:nharm`, fold amplitudes at N_HARM = 2, 3, 4 | `data/nharm_convergence.csv` ← `nharm_convergence.py` |
+| `tab:projconv` | Appendix `app:projconv`, located projection fold under seven settings | `data/projfold_convergence.csv` ← `projfold_convergence.py` |
+| `tab:fingerprint` | Sec. `sec:fingerprint`, discriminating power of {3/2, 1/2} | analytic; no script |
 
 ---
 
@@ -108,6 +125,7 @@ upstream producers first.
 | Claim (as stated) | Value | Script |
 |---|---|---|
 | Phase contour, hardening: cusps at arg G = −150° | 28 cusps (Ω = 1.30–1.43, κ×2.5) within **0.44°**; median equivalent offset 2.0×10⁻⁴, worst case 3.6×10⁻⁴, vs a fit-window spread reaching 3×10⁻⁴ across the family | `phase_contour_validation.py` (tips from `refine_beaks_window.py` via `cusp_tip_intercept.py`) |
+| Dynamic range of the phase test (the null for the 0.44° pass) | over the same band arg G sweeps **27.3°** at κ = 0.12 and **91.9°** at κ = 0.30 (100.3° over the whole set), so the worst residual is **1.6%** of the narrowest sweep; \|∂_Ω arg G\| at the located cusps is **278–1349** deg per unit Ω, so 0.44° is a frequency displacement of **3.2×10⁻⁴–1.6×10⁻³** | `phase_contour_validation.py` |
 | Phase contour, softening: cusps at arg G = −30° | 8 cusps within **0.047°**; tips agree to 1.5–4.8×10⁻⁵ in Ω | `softening_contour_validation.py` |
 | Comb ratio at benchmark | \|G(3Ω)/G(Ω)\| = **7.3×10⁻³** | `comb_cusp_shift.py`, `comb_validation.py` |
 | Third-harmonic shift of the cusp frequency | ΔΩ_c = **−2.4×10⁻⁵**; ΔF_c = **−0.14%** | `comb_cusp_shift.py` |
@@ -163,7 +181,7 @@ upstream producers first.
 | Measured prefactor vs LO+1 | rises from c\*_HB = **0.1658** at μ=5.7×10⁻³ to **0.2072** at μ=0.181, against 0.1639 and 0.2185; residual within **±1.2%** over κ ∈ [0.125, 0.18], growing monotonically to **−5.2%** at the largest coupling. (Computed row by row from `tab:beaks_hb`: worst residual on that window is +1.16%, largest-coupling residual −5.17%.) The two near-threshold couplings sit +15.7% and +5.4% above and are the least reliable of the set | `refine_beaks_window.py` → `data/beaks_tips_refined.csv`; `normal_form_cstar.py` |
 | Cusp locus vs full HB (16 couplings, 32 cusps) | modal closed form: max **1.287e-3**, median **7.811e-4** per cusp in Ω — the figures quoted in the Discussion. Exact receptance: max **9.461e-4**, median **2.235e-4**, so a third of the apparent leading-order error is the modal approximation to G, not the truncation | `cusp_locus_vs_hb.py` |
 | Free-exponent 3/2 test | three-parameter regression returns p = **1.56 ± 0.20**, Ω_c = 1.0675 ± 0.0011; the exponent drifts over 1.1–1.7 with the fit window, so it is reported as consistent with 3/2, not a determination | `free_exponent_fits.py` |
-| κ\* scaling laws | κ\* ∝ √ζ and ∝ √(ω₂²−ω₁²); sweeping ζ₂ over [0.005, 0.080] moves κ\* over [0.059, 0.232] with κ\*/√ζ₂ ≈ 0.83 constant to 5%, against the analytic prefactor ≈ 0.87 | `run_kstar_scaling.py` |
+| κ\* scaling laws (X, Fig. 2) | κ\* ∝ √γ₂ and ∝ √(ω₂²−ω₁²); sweeping γ₂ over [0.005, 0.080] moves κ\* over [0.059, 0.232] with κ\*/√γ₂ = **0.8202–0.8370**, flat to 5.5% against the weak-mixing prefactor √((8−4√3)ω_b(ω₂²−ω₁²)) = **0.8681**; in mode separation the Newton solution runs from **0.743** of the asymptotic at √(ω₂²−ω₁²)=0.336 to **1.002** at 1.430, the crossover as 2κ\* ≪ ω₂²−ω₁² is lost | `make_fig_threshold_scaling.py` → `data/threshold_scaling.csv` (Newton continuation, plotted); `run_kstar_scaling.py` (independent bisection survey over ω₂, ζ₁, ζ₂) |
 | β₂ robustness | κ\* drifts by up to tens of percent across \|β₂\|/β₁ ≲ 0.07 (β₂ = +0.01 shifts it by −17%), but both upper-pair cusps remain visible across β₂ ∈ [−0.10, 0.20] | `run_beta2_robustness.py` |
 | N_HARM convergence | fold amplitudes shift ~0.5% between N_HARM = 2 and 3, then unchanged to five digits through 4; located tips move ~2×10⁻⁴ in Ω between 2 and 3, then stable to <10⁻⁶ through 5 | `nharm_convergence.py` → `data/nharm_convergence.csv`; `refine_nharm_study.py` → `data/beaks_nharm_refined.csv` |
 | Josephson/Kerr device numbers | J\* = **2.4754** MHz, f_d−f₁ = **−50.066** MHz, ρ\* = **+43.997** MHz (>0, softening branch), arg G = **−30.00°**, n_c = **366.6** photons; pair separation **0.9886** MHz at J=5 and **1.2987** MHz at J=6 | `kerr_device_verify.py`. NOTE: the auxiliary mode must sit BELOW (F2 = −50). With F2 = +50 there is no physical cusp on the softening branch, fsolve lands on the mirror hardening root, and the script reports arg G = −150°, negative ρ and n_c, and zero cusps — an artifact of the sign, not a failure of the paper. |
@@ -172,6 +190,12 @@ upstream producers first.
 
 ---
 
+**A naming note on damping.** Both manuscripts write γ for a damping *rate*
+(the half-width in the lightly damped limit), not a dimensionless ratio. Some
+older scripts name the same quantity `z`/`zeta`; they use it as a rate in the
+denominator `ω² − Ω² + 2i·z·Ω`, so the numbers agree with the γ convention and
+only the variable name differs.
+
 ## 7. Data inventory
 
 CSV/JSON products live in `data/`.
@@ -179,38 +203,41 @@ CSV/JSON products live in `data/`.
 Consumed by the Letter's figures:
 
 - `beaks_tips_refined.csv`, `lips_hb_moderate.csv`,
-  `softening_contour_validation.csv` — Fig. 2
-- `hb_bistability_maps.csv` — Fig. 3(a),(b); `inverse_design_branches.csv` —
-  Fig. 3(c)
+  `softening_contour_validation.csv` — Fig. S1 (Supplement)
+- `hb_bistability_maps.csv` — Fig. 2(a),(b); `inverse_design_branches.csv` —
+  Fig. 2(c)
 - `fullhb_projection_fold.json` — End Matter codim-2 location
 - `phase_residual_estimator_control.csv` — SM §S3 estimator control
 - `stress_3omega_resonance.json`, `stress_3omega_convergence_nh{5,7,9}.json` —
-  SM §S5 stress test, Table I, and its truncation/window convergence
+  SM §S5 stress test, Table S2, and its truncation/window convergence
 - `sampled_receptance_robustness.json` — SM §S6 sampled-receptance study,
-  Table II
+  Table S3
 - `bisection_nharm_check.json` — truncation check on the End Matter bracket
 
 Consumed by the long paper's figures and tables:
 
-- `cusp_scaling_law.csv` (← `cusp_both_folds.csv`) — Fig. 4
-- `beaks_tips_refined.csv` — Fig. 5 and `tab:beaks_hb`
-- `hb_bistability_maps.csv` — Fig. 7
+- `beaks_tips_refined.csv` — Fig. 3 and `tab:beaks_hb`
+- `threshold_scaling.csv` — Fig. 2 (written by its own generator)
+- `typeboundary_hb_verify.csv`, `typeboundary_lips_threshold.csv`,
+  `typeboundary_lips_scaling.csv` — Fig. 4
+- `cusp_scaling_law.csv` (← `cusp_both_folds.csv`) — superseded old Fig. 4
+- `hb_bistability_maps.csv` — superseded old Fig. 7; still read by Letter Fig. 2(a),(b)
 - `ensemble_validity_boundary.csv` — `tab:typevalidity` and the ladder counts
-- `nharm_convergence.csv`, `beaks_nharm_refined.csv` — `tab:nharm`,
-  `tab:nharmtips`
-- `projfold_convergence.csv` — `tab:projconv`
+- `nharm_convergence.csv` — Appendix `app:nharm`;
+  `beaks_nharm_refined.csv` — `tab:nharmtips`
+- `projfold_convergence.csv` — Appendix `app:projconv`
 - `kerr_stability_map.csv`, `kerr_tradeoff.csv` — §VII B
 
 `inverse_design_map.csv` and `inverse_design_targets.csv` are the
 single-branch locus and target list; they are inputs to the design solver but
-are not read by the Fig. 3 generator (see §5, "Inverse design").
+are not read by the Fig. 2 generator (see §5, "Inverse design").
 
 ---
 
 ## 8. Provenance verification (2026-09-07)
 
-The Fig. 3 chain was re-run end to end from a clean state and compared against
-the archived artifacts:
+The Letter Fig. 2 chain (`fig_prl_design.pdf`) was re-run end to end from a
+clean state and compared against the archived artifacts:
 
 | Step | Result |
 |---|---|

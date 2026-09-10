@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "receptance-cusp-catastrophes: code and data for cusp-pair births organized by the linear driving-point receptance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "language": "eng",
   "access_right": "open",
   "license": "MIT",

@@ -1,0 +1,20 @@
+{
+ "freeze": "B2-T (configuration 5, T12 trigger series predictions)",
+ "manifest": "raze_2026_prospective/MANIFEST_freezeB2_T.sha256",
+ "sha256_of_manifest": "5771024739378d0cd80ecae16060cb7af28461b687fe871422c9ccef7c826b1c",
+ "frozen_utc": "2026-11-12T10:26:21Z",
+ "primary": "raze_2026_prospective/freezeB2_T/primary_S3/prediction_bundle.json",
+ "sensitivity": "raze_2026_prospective/freezeB2_T/sensitivity_cubic_on_only/prediction_bundle.json",
+ "plan": [
+  "TWO_BOARD_PROSPECTIVE_PLAN_v1.md 9fe6847c",
+  "TWO_BOARD_FREEZE_S.md 5a40b50e",
+  "S1 977f7111",
+  "S2 e73de4df",
+  "S3 c0dc73f4",
+  "TWO_BOARD_TRIGGER_PLAN_v1.md cb3af12a",
+  "v1.1 eb1c97e5",
+  "v1.2 007e8eb4",
+  "TWO_BOARD_TRIGGER_T_S.md 4ec0301e"
+ ],
+ "note": "Frozen before any nonlinear two-board measurement on T, with analysis code byte-identical to B2-E. All gates pass at all six settings. Cubic-on-only bundle frozen alongside as reported sensitivity. See freezeB2_T/FREEZE_B2_T_NOTE.md."
+}

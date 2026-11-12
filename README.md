@@ -4,3 +4,4 @@ This branch holds SHA-256 records of frozen prediction bundles for the two-board
 
 - B2-E (configuration E): frozen 2026-11-11T15:08:42Z. SHA-256 of `MANIFEST_freezeB2_E.sha256` = d31f3cd9014704e87b05ab0d1abdc6ee445d33f635000647268e3c49a37618e2
 - B2-T (configuration 5, trigger series): frozen 2026-11-12T10:26:21Z. SHA-256 of `MANIFEST_freezeB2_T.sha256` = 5771024739378d0cd80ecae16060cb7af28461b687fe871422c9ccef7c826b1c
+- B2-C (configuration C, secondary): frozen 2026-11-12T14:07:20Z. SHA-256 of `MANIFEST_freezeB2_C.sha256` = 824b93bd02a8b5d18efd799ccd7e01252fffd9f69fdd75614a10aa825598dd80

@@ -1,0 +1,10 @@
+{
+ "freeze": "B2-C (configuration C predictions, secondary)",
+ "manifest": "raze_2026_prospective/MANIFEST_freezeB2_C.sha256",
+ "sha256_of_manifest": "824b93bd02a8b5d18efd799ccd7e01252fffd9f69fdd75614a10aa825598dd80",
+ "frozen_utc": "2026-11-12T14:07:20Z",
+ "primary": "raze_2026_prospective/freezeB2_C/primary_S3/prediction_bundle.json",
+ "sensitivity": "raze_2026_prospective/freezeB2_C/sensitivity_cubic_on_only/prediction_bundle.json",
+ "plan": ["TWO_BOARD_PROSPECTIVE_PLAN_v1.md 9fe6847c", "TWO_BOARD_FREEZE_S.md 5a40b50e", "S1 977f7111", "S2 e73de4df", "S3 c0dc73f4"],
+ "note": "Frozen before any nonlinear two-board measurement on C. Analysis script extended for C (configuration entry, per-configuration step, gamma2 P4, missing-record guard) before any C value was read. All gates pass at all five settings. Cubic-on-only bundle frozen alongside as reported sensitivity. See freezeB2_C/FREEZE_B2_C_NOTE.md."
+}

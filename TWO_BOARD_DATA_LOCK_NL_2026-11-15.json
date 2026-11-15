@@ -1,0 +1,12 @@
+{
+ "record": "Data lock: complete nonlinear two-board delivery (E, 5, C), plan_v1 order of operations step 4",
+ "manifest": "raze_2026_prospective/two_board/MANIFEST_NL_COMPLETE_2026-11-15.sha256",
+ "sha256_of_manifest": "0936c31c9dd0956a0c16b2d4a240d62227fd70f2f77bd5c7e78c83e08231720e",
+ "locked_utc": "2026-11-15T10:35:03Z",
+ "primary_runs_X0": {
+  "E": {"E1.4": "exp1_001", "E1.2": "exp1_002", "E1.1": "exp1_003", "E0.9": "exp1_004", "E0.8": "exp1_005", "E0.6": "exp1_006", "Eres": "exp1_007", "end_of_session_FRF": "exp3_002"},
+  "5": {"TB": "exp1_008", "T0.85": "exp1_009", "T0.95": "exp1_010", "T1.10": "exp1_011", "T1.25": "exp1_012", "T1.40": "exp1_013", "end_of_session_FRF": "exp3_003"},
+  "C": {"Cmax": "exp1_014", "C1.1": "exp1_015", "C0.9": "exp1_016", "C0.8": "exp1_017", "C0.6": "exp1_018", "end_of_session_FRF": "exp3_004"}
+ },
+ "note": "Selection made from the acquisition log alone, before any nonlinear file was opened. One run is logged per setting. A first E attempt on 2026-11-11 had a mis-set switch (linear circuit), was reported in writing before any prediction was released, and is not part of the delivery. All three prediction freezes (B2-E, B2-T, B2-C) predate the nonlinear measurements."
+}
